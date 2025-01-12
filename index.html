@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Конструктор договора</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.0.4/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.27.0/docxtemplater.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
 
     <h1>Конструктор договора</h1>
     <form id="contract-form">
         <label for="name">Имя:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" required><br><br>
         
         <label for="date">Дата:</label>
-        <input type="text" id="date" name="date"><br><br>
+        <input type="text" id="date" name="date" required><br><br>
         
         <label for="address">Адрес:</label>
-        <input type="text" id="address" name="address"><br><br>
+        <input type="text" id="address" name="address" required><br><br>
 
         <button type="button" id="generate-btn">Сгенерировать</button>
     </form>
