@@ -3,7 +3,7 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     const date = document.getElementById('date').value;
     const address = document.getElementById('address').value;
 
-    if (!name⠵⠵⠞⠞⠞⠟⠵⠟⠵!address) {
+    if (!name⠵⠵⠟⠺⠵⠵⠺⠺⠵!address) {
         alert('Пожалуйста, заполните все поля!');
         return;
     }
@@ -31,7 +31,14 @@ document.getElementById('generate-btn').addEventListener('click', function() {
 
             // Генерируем файл и скачиваем его
             const out = doc.getZip().generate({ type: 'blob' });
-            saveAs(out, 'generated_contract.docx');
+            
+            // Скачиваем файл сгенерированного документа
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(out);
+            a.download = 'generated_contract.docx';
+            a.click();
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            console.error('Ошибка загрузки шаблона:', err);
+        });
 });
