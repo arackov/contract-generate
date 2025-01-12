@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор договоров</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Конструктор договоров</h1>
+    <form id="contractForm">
+        <label for="fio">ФИО сторон:</label>
+        <input type="text" id="fio" placeholder="Введите ФИО сторон" required>
+
+        <label for="subject">Предмет договора:</label>
+        <input type="text" id="subject" placeholder="Предмет договора" required>
+
+        <label for="date">Дата заключения договора:</label>
+        <input type="date" id="date" required>
+
+        <button type="button" id="generateButton">Сгенерировать договор</button>
+    </form>
+
+    <script src="pizzip.js"></script>
+    <script src="docxtemplater.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
