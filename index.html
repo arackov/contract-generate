@@ -1,33 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конструктор договора</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Подключаем локальные библиотеки PizZip и Docxtemplater -->
-    <script src="pizzip.min.js"></script>
-    <script src="docxtemplater.min.js"></script>
+    <title>Конструктор договоров</title>
 </head>
 <body>
-
-    <h1>Конструктор договора</h1>
+    <h1>Заполните данные для договора</h1>
     <form id="contract-form">
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="date">Дата:</label>
-        <input type="text" id="date" name="date" required><br><br>
-        
-        <label for="address">Адрес:</label>
-        <input type="text" id="address" name="address" required><br><br>
-
-        <button type="button" id="generate-btn">Сгенерировать</button>
+        <label>Имя клиента:
+            <input type="text" id="client-name" required>
+        </label>
+        <button type="button" id="generate-btn">Сгенерировать договор</button>
     </form>
-
-    <div id="generated-output">
-        <!-- Здесь будет отображаться сгенерированный договор -->
-    </div>
 
     <script src="script.js"></script>
 </body>

@@ -1,44 +1,22 @@
-document.getElementById('generate-btn').addEventListener('click', function() {
-    const name = document.getElementById('name').value;
-    const date = document.getElementById('date').value;
-    const address = document.getElementById('address').value;
+document.getElementById('generate-btn').addEventListener('click', async () => {
+    const clientName = document.getElementById('client-name').value;
 
-    if (!name⠵⠵⠟⠺⠵⠵⠺⠺⠵!address) {
-        alert('Пожалуйста, заполните все поля!');
-        return;
+    const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clientName })
+    });
+
+    if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Договор.docx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    } else {
+        alert('Ошибка генерации договора.');
     }
-
-    // Загружаем шаблон документа
-    fetch('template.docx')
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => {
-            const zip = new PizZip(arrayBuffer);
-            const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
-
-            // Подставляем данные в шаблон
-            doc.setData({
-                name: name,
-                date: date,
-                address: address,
-            });
-
-            try {
-                // Рендерим документ
-                doc.render();
-            } catch (error) {
-                console.error(error);
-            }
-
-            // Генерируем файл и скачиваем его
-            const out = doc.getZip().generate({ type: 'blob' });
-            
-            // Скачиваем файл сгенерированного документа
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(out);
-            a.download = 'generated_contract.docx';
-            a.click();
-        })
-        .catch(err => {
-            console.error('Ошибка загрузки шаблона:', err);
-        });
 });
