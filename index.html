@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конструктор договоров</title>
+    <title>Конструктор договора</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Конструктор договоров</h1>
-    <form id="contractForm">
-        <label for="fio">ФИО сторон:</label>
-        <input type="text" id="fio" placeholder="Введите ФИО сторон" required>
 
-        <label for="subject">Предмет договора:</label>
-        <input type="text" id="subject" placeholder="Предмет договора" required>
+    <h1>Конструктор договора</h1>
+    <form id="contract-form">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="date">Дата:</label>
+        <input type="text" id="date" name="date"><br><br>
+        
+        <label for="address">Адрес:</label>
+        <input type="text" id="address" name="address"><br><br>
 
-        <label for="date">Дата заключения договора:</label>
-        <input type="date" id="date" required>
-
-        <button type="button" id="generateButton">Сгенерировать договор</button>
+        <button type="button" id="generate-btn">Сгенерировать</button>
     </form>
 
-    <script src="pizzip.js"></script>
-    <script src="docxtemplater.js"></script>
+    <div id="generated-output">
+        <!-- Здесь будет отображаться сгенерированный договор -->
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
